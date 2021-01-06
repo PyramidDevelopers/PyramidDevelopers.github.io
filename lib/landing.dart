@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:global.dart';
+import 'global.dart';
 
 class Landing extends StatefulWidget {
   Landing({Key key}) : super(key: key);
