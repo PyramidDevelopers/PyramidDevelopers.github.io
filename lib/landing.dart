@@ -1,9 +1,4 @@
 import 'package:flutter/material.dart';
-
-import 'global.dart';
-import 'global.dart';
-import 'global.dart';
-import 'global.dart';
 import 'global.dart';
 
 class Landing extends StatefulWidget {
