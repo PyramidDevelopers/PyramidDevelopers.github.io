@@ -16,6 +16,11 @@ jobs:
     - run: flutter config --enable-web
     - run: flutter pub get
     - run: flutter build web --release
+    - name: Archive Production Artifact
+      uses: actions/upload-artifact@master
+      with:
+        name: web-build
+        path: build/web
   deploy:
     needs: build
     name: Deploy to GitHub Pages Branch
