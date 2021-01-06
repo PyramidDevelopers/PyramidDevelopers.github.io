@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pyramid_web/landing.dart';
+import 'landing.dart';
 
 void main() {
   runApp(MyApp());
