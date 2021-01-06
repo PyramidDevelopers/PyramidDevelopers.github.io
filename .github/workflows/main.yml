@@ -5,8 +5,21 @@ on:
       - main
 
 jobs:
+  build:
+    name: Build web
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: subosito/flutter-action@v1
+      with:
+        channel: beta
+    - run: flutter config --enable-web
+    - run: flutter pub get
+    - run: flutter test
+    - run: flutter build web
   deploy:
-    name: Deploy to GitHub Pages
+    needs: build
+    name: Deploy to GitHub Pages Branch
     runs-on: ubuntu-latest    
     steps:
     - uses: actions/checkout@master
