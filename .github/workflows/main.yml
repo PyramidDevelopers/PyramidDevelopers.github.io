@@ -18,6 +18,7 @@ jobs:
     - run: flutter test
     - run: flutter build web
   deploy:
+    needs: build
     name: Deploy to GitHub Pages Branch
     runs-on: ubuntu-latest    
     steps:
