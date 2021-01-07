@@ -16,11 +16,16 @@ jobs:
     - run: flutter config --enable-web
     - run: flutter pub get
     - run: flutter build web --release
-    - name: Archive Production Artifact
-      uses: actions/upload-artifact@master
+    - name: Commit files
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git commit -m "Add changes" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
       with:
-        name: web-build
-        path: build/web
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
   deploy:
     needs: build
     name: Deploy to GitHub Pages Branch
